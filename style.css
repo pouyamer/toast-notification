@@ -1,0 +1,162 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --error-primary: #ff5252;
+  --error-background: #fbe9e7;
+  --error-text: #c62828;
+
+  --success-primary: #4caf50;
+  --success-background: #e8f5e9;
+  --success-text: #1b5e20;
+
+  --warning-primary: #ff9800;
+  --warning-background: #fffde7;
+  --warning-text: #9e9d24;
+
+  --info-primary: #2196f3;
+  --info-background: #e3f2fd;
+  --info-text: #0d47a1;
+
+  /* Make sure to change the notification duration
+  and the notification transition duration in js file as well 
+  default:
+  notification duration: 5s
+  notification transition duration: .5s
+   */
+  --notification-duration: 5s;
+  --notification-transition-duration: 0.5s;
+}
+
+.notification-container {
+  position: absolute;
+  width: 100%;
+}
+
+.notification {
+  border: 1px solid #e3e3e3;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  max-width: 300px;
+  display: grid;
+  margin: 0.5em;
+  animation: fade-in var(--notification-transition-duration) ease-in-out;
+}
+
+.notification.hide {
+  animation: fade-in-reverse var(--notification-transition-duration) ease-in-out;
+}
+
+@keyframes fade-in {
+  from {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in-reverse {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+}
+
+.title {
+  padding: 0.5rem;
+}
+
+.body {
+  padding: 0.5rem;
+}
+
+.bar-container {
+  height: 5px;
+  width: 100%;
+
+  display: grid;
+}
+
+.bar {
+  width: 100%;
+  animation: progress var(--notification-duration) ease-in-out forwards;
+}
+
+@keyframes progress {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0;
+  }
+}
+
+/* Colors: */
+
+.error {
+  background-color: var(--error-background);
+  color: var(--error-text);
+}
+
+.error .title {
+  background-color: var(--error-primary);
+  color: #ffffff;
+}
+
+.error .bar {
+  background-color: var(--error-primary);
+}
+
+.success {
+  background-color: var(--success-background);
+  color: var(--success-text);
+}
+
+.success .title {
+  background-color: var(--success-primary);
+  color: #ffffff;
+}
+
+.success .bar {
+  background-color: var(--success-primary);
+}
+
+.warning {
+  background-color: var(--warning-background);
+  color: var(--warning-text);
+}
+
+.warning .title {
+  background-color: var(--warning-primary);
+  color: #ffffff;
+}
+
+.warning .bar {
+  background-color: var(--warning-primary);
+}
+
+.info {
+  background-color: var(--info-background);
+  color: var(--info-text);
+}
+
+.info .title {
+  background-color: var(--info-primary);
+  color: #ffffff;
+}
+
+.info .bar {
+  background-color: var(--info-primary);
+}
