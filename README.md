@@ -11,7 +11,7 @@ An Example:
 createNotification("Success", "This is a success notification", "success")
 ```
 
-## Modes
+## Types
 type can be:
 - success ✅
 - error ⛔
